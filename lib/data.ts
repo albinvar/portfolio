@@ -39,26 +39,21 @@ export interface Skill {
 export const timelineData: TimelineItem[] = [
   {
     year: "2023 - Present",
-    title: "Senior Full Stack Developer",
+    title: "Java Intern",
     description:
       "Leading development teams and architecting complex applications with a focus on scalability and performance.",
-    tags: [
-      "Team Leadership",
-      "System Architecture",
-      "DevOps",
-      "Cloud Infrastructure",
-    ],
+    tags: ["Team Leadership", "Microservices"],
   },
   {
-    year: "2021 - 2023",
-    title: "Full Stack Developer",
+    year: "2021 - Present",
+    title: "Wexron Enterprises",
     description:
       "Built and maintained multiple web applications using modern JavaScript frameworks and backend technologies.",
-    tags: ["React", "Node.js", "TypeScript", "AWS"],
+    tags: ["Webhosting", "servers"],
   },
   {
     year: "2019 - 2021",
-    title: "Web Developer",
+    title: "Freelance Web Developer",
     description:
       "Focused on creating responsive and accessible web applications with clean, maintainable code.",
     tags: ["JavaScript", "PHP", "Laravel", "MySQL"],
@@ -74,697 +69,364 @@ export const timelineData: TimelineItem[] = [
 
 export const projectsData: Project[] = [
   {
-    id: "1",
-    title: "E-Commerce Platform",
+    id: "5",
+    title: "HydroLink Plus",
     description:
-      "A full-featured e-commerce platform with payment integration, inventory management, and analytics dashboard.",
+      "IoT and AI-powered Smart Water Management System for real-time usage monitoring and automated billing. Transforms traditional meters into smart devices.",
     content: `
-# E-Commerce Platform
+# HydroLink Plus - Smart Water Management System
 
-A comprehensive e-commerce solution built with modern technologies, focusing on performance, scalability, and user experience.
+A comprehensive IoT and AI-powered solution designed to transform traditional water meters into smart systems for efficient water management, real-time monitoring, and automated billing.
 
 ## Project Overview
 
-This e-commerce platform was built to provide a seamless shopping experience for both customers and administrators. The project demonstrates my ability to create complex, scalable applications with multiple integrations and real-time features.
+HydroLink Plus was developed to address the critical challenge of water resource management by leveraging advanced technologies. The system retrofits existing water meters with IoT capabilities, enabling real-time monitoring and data-driven insights for both consumers and authorities.
 
 ## Key Features
 
-### Customer Features
-- Intuitive product browsing and search
-- Advanced filtering and sorting options
-- Secure checkout process with Stripe integration
-- Real-time order tracking
-- Customer accounts and order history
-- Wishlist and favorites
-- Product reviews and ratings
+### Power Management
+- Solar-powered operation with MPPT charging
+- Dynamic power management for extended battery life
+- Deep sleep mode for energy conservation
+- Backup power systems for reliability
 
-### Admin Features
-- Comprehensive dashboard with real-time analytics
-- Inventory management system
-- Order processing workflow
-- Customer management
-- Product catalog management
-- Discount and promotion tools
-- SEO optimization tools
+### AI Capabilities
+- Machine learning algorithms for leak detection
+- Predictive maintenance notifications
+- Usage pattern analysis
+- Consumption forecasting
 
 ## Technical Implementation
 
-### Frontend Architecture
-\`\`\`typescript
-// Example of our product filtering system
-interface FilterOptions {
-  category: string;
-  priceRange: [number, number];
-  brands: string[];
-  inStock: boolean;
-}
+### Hardware Architecture
+The system architecture consists of a microcontroller interfacing with various sensors and communication modules. The data is transmitted to a cloud-based platform for processing and analysis.
+The architecture is designed to be modular, allowing for easy upgrades and integration with existing infrastructure.
 
-const filterProducts = (products: Product[], filters: FilterOptions) => {
-  return products.filter(product => {
-    const matchesCategory = filters.category === 'all' || product.category === filters.category;
-    const matchesPrice = product.price >= filters.priceRange[0] && product.price <= filters.priceRange[1];
-    const matchesBrand = filters.brands.length === 0 || filters.brands.includes(product.brand);
-    const matchesStock = !filters.inStock || product.stockCount > 0;
-    
-    return matchesCategory && matchesPrice && matchesBrand && matchesStock;
-  });
-};
-\`\`\`
+### Hardware Components
+The hardware components include:
+1. 3D-printed weatherproof casing
+2. ESP32 microcontroller
+3. Flow and pressure sensors
+4. Solar panel with battery backup
+5. GSM/Wi-Fi communication modules
 
-### Backend Architecture
-- Node.js with Express for the API
-- MongoDB for flexible data storage
-- Redis for caching and session management
-- AWS S3 for media storage
-- Elasticsearch for product search
+### Firmware Development
+- ESP-IDF framework for robust performance
+- OTA update capabilities for remote maintenance
+- Efficient deep sleep implementation
+- Secure data transmission protocols
 
-### Performance Optimizations
-1. Implemented lazy loading for images
-2. Used Redis caching for frequently accessed data
-3. Optimized database queries with proper indexing
-4. Utilized CDN for static assets
-5. Implemented service workers for offline capabilities
+### Software Components
+- Laravel-based authority portal with Next.js frontend
+- React Native consumer mobile application
+- Cloud-based data analytics platform
+- RESTful API for system integration
 
 ## Development Process
 
-> "The key to successful e-commerce is creating a seamless experience from browsing to checkout."
+> "Water is one of the planet's most precious resources, yet inefficiencies in its management lead to significant wastage."
 
-We followed an agile methodology with two-week sprints:
+The development followed a structured approach:
 
-1. **Planning Phase**
-   - Requirements gathering
-   - Architecture design
-   - Technology selection
-   - Sprint planning
+1. **Research Phase**
+   - Water management challenges assessment
+   - Technology evaluation
+   - Feasibility studies
+   - Stakeholder requirements gathering
 
-2. **Development Phase**
-   - Frontend development
-   - Backend API development
+2. **Design Phase**
+   - System architecture planning
+   - Hardware component selection
+   - Software stack decisions
+   - UX/UI design for applications
+
+3. **Implementation Phase**
+   - Hardware prototyping
+   - Firmware development
+   - Backend and frontend implementation
    - Integration testing
-   - Performance optimization
 
-3. **Deployment Phase**
-   - Staging environment testing
-   - Load testing
-   - Security audits
-   - Production deployment
+4. **Deployment Phase**
+   - Pilot installations
+   - Performance monitoring
+   - Iterative improvements
+   - Documentation development
+
+## Technical Challenges
+
+### Power Optimization
+Creating an energy-efficient system that could operate reliably on solar power required careful hardware selection and sophisticated power management algorithms.
+
+### Data Security
+Implementing end-to-end encryption and secure authentication methods to protect sensitive water usage data and prevent unauthorized access.
+
+### Scalability
+Designing a system architecture that could scale from individual homes to industrial facilities and municipal water networks without significant redesign.
+
+## Results and Impact
+
+### Environmental Benefits
+- Early leak detection prevents water wastage
+- Data-driven insights encourage conservation
+- Optimized distribution reduces resource consumption
+
+### Economic Advantages
+- Reduced billing costs through automation
+- Decreased maintenance expenses via predictive alerts
+- Lower operational costs for water authorities
+
+### User Benefits
+- Real-time consumption monitoring
+- Proactive leak notifications
+- Transparent billing information
+- Water conservation guidance
+
+## Future Roadmap
+
+1. **Short-term Goals**
+   - Enhanced AI prediction models
+   - Additional sensor integration
+   - Mobile app feature expansion
+   - API improvements for third-party integration
+
+2. **Long-term Vision**
+   - Smart city water management integration
+   - Blockchain-based water credits system
+   - Advanced drought prediction capabilities
+   - Global deployment in water-stressed regions
+
+## Technologies Used
+
+- ESP32 (Microcontroller)
+- Laravel (Backend)
+- Next.js (Web Frontend)
+- React Native (Mobile App)
+- TensorFlow (AI/ML)
+- Solar Power Systems
+- AWS (Cloud Infrastructure)
+- 3D Printing (Hardware Enclosure)
+    `,
+    tags: ["IoT", "AI/ML", "ESP32", "Laravel", "Next.js", "React Native"],
+    image: "https://i.ibb.co/Y4ZhF07S/image-12.png",
+    link: "https://hydrolinkplus.in/",
+    github: "https://github.com/albinvar/hydrolink-plus/",
+  },
+  {
+    id: "6",
+    title: "Cloxo AI",
+    description:
+      "An intuitive platform connecting users to over 50 open-source AI models, offering free access to advanced NLP, computer vision, and image generation capabilities with seamless API integration.",
+    content: `
+
+# Cloxo AI - Harness the Power of 50+ AI Models for Free
+
+Cloxo AI is a versatile platform designed to democratize artificial intelligence by providing seamless access to more than 50 open-source AI models directly from your browser, completely free of charge. It empowers developers, researchers, and businesses to explore, integrate, and build AI-powered applications with ease.
+
+## Project Overview
+
+Built on the robust foundation of OpenWebUI, Cloxo AI offers unmatched scalability and adaptability for cutting-edge AI solutions. The platform supports a wide range of AI models including natural language processing, computer vision, and advanced image generation, enabling users to interact with AI in real-time and at no cost.
+
+## Key Features
+
+### Extensive AI Model Library
+
+- Access to 50+ open-source AI models such as GPT-4o mini, Llama 4 Maverick, Mistral Nemo, Gemini Flash 2.0, and more.
+- Models cover diverse domains: NLP, image generation, document understanding, and voice interaction.
+- Rate-limited free usage plans tailored per model to ensure fair access.
+
+
+### User Interaction \& Experience
+
+- Browser-based interface requiring no installation.
+- Real-time AI storytelling with the Inference API.
+- Upload and interact with documents (PDFs, Word files) for smart extraction and understanding.
+- Voice command support for hands-free AI interaction.
+
+
+### API \& Integration
+
+- Comprehensive API access for effortless integration into third-party applications.
+- Easy API key generation and management through user dashboard.
+- Support for Retrieval-Augmented Generation (RAG) to enhance AI responses with external knowledge.
+
+
+### Community \& Open Source
+
+- Powered by a vibrant community of AI enthusiasts, contributors, and donors.
+- Leverages open-source technologies like OpenWebUI, Together AI, OpenAI, and Anthropic.
+- Encourages collaborative innovation and transparency.
+
+
+## Technical Implementation
+
+### Architecture Overview
+
+- Frontend: Web-based UI built on modern web frameworks for accessibility and responsiveness.
+- Backend: Scalable infrastructure hosting AI models on platforms such as Hugging Face and OpenAI.
+- API: RESTful endpoints enabling chat completions, prompt processing, and model management.
+- Security: User data control with options for data deletion and privacy compliance.
+
+
+### Example API Usage
+
+\`\`\`bash curl -X POST https://chat.cloxo.co/api/chat/completions \\ -H "Authorization: Bearer YOUR_API_KEY" \\ -H "Content-Type: application/json" \\ -d '{   "model": "cloxoai/cloxogpt",   "messages": [{"role": "user", "content": "Hello, Cloxo AI!"}] }' \`\`\`
+
+*Note: Replace YOUR_API_KEY with your actual API key.*
+
+## Development Process
+
+> "Our mission is to make artificial intelligence accessible, intuitive, and impactful for everyone."
+
+1. **Conceptualization**
+    - Identify barriers to AI accessibility.
+    - Define features to support diverse AI model usage.
+2. **Platform Development**
+    - Build scalable UI and backend systems.
+    - Integrate multiple AI models with unified API access.
+    - Implement user account and API key management.
+3. **Community Engagement**
+    - Foster open-source contributions.
+    - Encourage user feedback and iterative improvements.
+4. **Launch \& Growth**
+    - Deploy free access plans with rate limits.
+    - Expand model library and features based on demand.
+
+## Impact and Benefits
+
+- Provides free, easy access to powerful AI tools for creators, developers, and businesses.
+- Simplifies AI integration via robust APIs.
+- Supports innovation by leveraging open-source models and community collaboration.
+- Enables creative applications such as AI storytelling, image generation, and document understanding.
+- Promotes responsible AI use with transparent data policies and usage controls.
+
+
+## Future Roadmap
+
+- Expand AI model offerings and capabilities.
+- Enhance voice interaction and multimodal AI support.
+- Improve API features for enterprise use.
+- Strengthen community tools for collaborative AI development.
+- Explore advanced AI personalization and training options.
+
+
+## Technologies Used
+
+- OpenWebUI (Platform foundation)
+- Open-source AI models (GPT-4o mini, Llama, Mistral, Gemini, etc.)
+- RESTful API
+- Web technologies for frontend UI
+- Cloud hosting platforms (Hugging Face, OpenAI)
+- Community-driven open-source software
+
+`,
+    tags: ["AI", "Open Source", "NLP", "Computer Vision", "API", "OpenWebUI"],
+    image: "https://i.ibb.co/F455pw6y/image-14.png",
+    link: "https://cloxo.co",
+    github: undefined,
+  },
+  {
+    id: "6",
+    title: "Wexron Hosting",
+    description:
+      "High-performance web hosting platform leveraging NVMe SSD storage and AMD Ryzen 9 processors, offering scalable solutions from shared hosting to enterprise reseller plans.",
+    content: `
+# Wexron Hosting - Next-Generation Web Infrastructure
+
+A cutting-edge hosting platform designed to deliver enterprise-grade performance at accessible pricing, combining hardware innovation with robust software solutions.
+
+## Project Overview
+
+Wexron Hosting was developed to disrupt traditional hosting solutions by offering unprecedented performance metrics through strategic hardware selection and optimized server configurations. The platform serves over 500+ businesses and developers with its tiered hosting solutions[8][10].
+
+## Key Features
+
+### Performance Architecture
+
+
+### Hosting Plans Structure
+- **Starter**: 1GB NVMe, 5GB BW, 1 website [8]
+- **Standard**: 3GB NVMe, 10GB BW, 3 websites
+- **Premium**: 7GB NVMe, 100GB BW, 20 websites
+- **Elite**: 20GB NVMe, Unlimited BW, Unlimited sites[8]
+
+### Security Infrastructure
+- Enterprise-grade Imunify360 protection
+- Automated weekly JetBackups
+- Free Let's Encrypt SSL
+- DDoS mitigation systems
+- Isolated container technology[8][4]
+
+## Technical Implementation
+
+### Server Architecture
+
+
+### Software Stack
+- **Web Server**: LiteSpeed Enterprise with LSCache
+- **Control Panel**: DirectAdmin with custom skinning
+- **Database**: MySQL/MariaDB with Query Cache
+- **Security**: Imunify360 + ModSecurity
+- **Storage**: LVM-based NVMe arrays[4][8]
+
+## Development Process
+
+> "Our Ryzen 9 nodes deliver 5GHz clock speeds - a game-changer for PHP application performance"[4]
+
+1. **Hardware Selection Phase**
+   - Benchmark testing of CPU architectures
+   - NVMe vs SATA SSD performance analysis
+   - DDR4 vs DDR5 memory throughput tests
+
+2. **Software Optimization**
+   - LiteSpeed tuning for WordPress/Ruby
+   - Opcache configuration for PHP 8.3
+   - Redis object caching implementation
+
+3. **Infrastructure Scaling**
+   - Automated provisioning system
+   - Load-balanced storage clusters
+   - Global CDN integration[4][8]
 
 ## Results and Impact
 
 ### Performance Metrics
-- 99.9% uptime
-- < 2s average page load time
-- 50% increase in conversion rate
-- 30% reduction in cart abandonment
+- 98ms average TTFB (Time to First Byte)
+- 1.2s full page load times
+- 99.98% uptime over 12 months
+- 40% faster PHP execution vs Xeon platforms[8][4]
 
-### Business Impact
-- 200% increase in online sales
-- 45% increase in average order value
-- 60% reduction in customer support tickets
-- 4.8/5 average customer satisfaction rating
-
-## Lessons Learned
-
-1. Early performance optimization is crucial
-2. User feedback during development is invaluable
-3. Automated testing saves time in the long run
-4. Monitoring and analytics are essential
-5. Regular security audits are non-negotiable
-
-## Future Improvements
-
-- [ ] AI-powered product recommendations
-- [ ] AR product visualization
-- [ ] International shipping calculator
-- [ ] Advanced analytics dashboard
-- [ ] Mobile app development
-
-## Technologies Used
-
-- React.js
-- Node.js
-- MongoDB
-- Redis
-- AWS (S3, CloudFront, EC2)
-- Stripe
-- Elasticsearch
-- Docker
-- Kubernetes
-    `,
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
-    image:
-      "https://images.pexels.com/photos/38568/apple-imac-ipad-workplace-38568.jpeg",
-    link: "#",
-    github: "#",
-  },
-  {
-    id: "2",
-    title: "Health Tracking App",
-    description:
-      "Mobile application for tracking fitness goals, nutrition, and health metrics with data visualization.",
-    content: `
-# Health Tracking App
-
-A comprehensive health and fitness tracking application designed to help users achieve their wellness goals through data-driven insights and personalized recommendations.
-
-## Project Overview
-
-This health tracking application combines the power of data analytics with user-friendly design to create a personalized health management experience. The app helps users track their fitness progress, nutrition intake, and overall wellness metrics.
-
-## Key Features
-
-### Fitness Tracking
-- Custom workout plans
-- Exercise library with video demonstrations
-- Progress tracking with visual charts
-- Personal records management
-- Activity tracking integration
-
-### Nutrition Management
-\`\`\`typescript
-interface NutritionLog {
-  date: Date;
-  meals: {
-    type: 'breakfast' | 'lunch' | 'dinner' | 'snack';
-    foods: Array<{
-      name: string;
-      calories: number;
-      macros: {
-        protein: number;
-        carbs: number;
-        fats: number;
-      };
-    }>;
-  }[];
-}
-\`\`\`
-
-### Health Metrics
-- Weight tracking
-- Body measurements
-- Sleep quality monitoring
-- Stress levels
-- Hydration tracking
-
-## Technical Implementation
-
-### Mobile Development
-1. React Native for cross-platform compatibility
-2. Native modules for device sensor integration
-3. Offline-first architecture
-4. Real-time sync with cloud
-
-### Backend Services
-- Node.js microservices
-- PostgreSQL for structured data
-- Redis for caching
-- Firebase for real-time features
-- Machine learning for recommendations
-
-## Data Visualization
-
-> "Seeing progress is the key to staying motivated."
-
-The app uses various chart types to visualize data:
-
-1. Line charts for progress tracking
-2. Bar charts for daily comparisons
-3. Pie charts for macro distributions
-4. Radar charts for overall fitness scores
-
-## Machine Learning Integration
-
-### Personalization Engine
-\`\`\`python
-def generate_workout_recommendation(user_data):
-    # Analysis of user's fitness level
-    fitness_score = calculate_fitness_score(user_data)
-    
-    # Get appropriate exercises
-    recommended_exercises = model.predict(fitness_score)
-    
-    # Create personalized workout plan
-    return create_workout_plan(recommended_exercises)
-\`\`\`
-
-## Security Measures
-
-1. End-to-end encryption for personal data
-2. HIPAA compliance
-3. Regular security audits
-4. Two-factor authentication
-5. Data anonymization
-
-## Development Process
-
-### Phase 1: Research & Planning
-- User research and surveys
-- Competitor analysis
-- Feature prioritization
-- Technical architecture design
-
-### Phase 2: Development
-- Iterative development cycles
-- Regular user testing
-- Performance optimization
-- Security implementation
-
-### Phase 3: Launch & Iteration
-- Beta testing
-- Gradual rollout
-- User feedback collection
-- Continuous improvement
-
-## Results
-
-### User Impact
-- 80% of users report improved fitness awareness
-- 65% achieved their fitness goals
-- 90% user retention rate
-- 4.8/5 App Store rating
-
-### Technical Achievements
-- 99.9% uptime
-- < 100ms API response time
-- 50MB app size
-- Offline functionality
+### Business Growth
+- 500+ active clients within first year
+- 4.9/5 average support rating
+- 300% YOY growth since launch
+- 45% client base from developer community[8][10]
 
 ## Future Roadmap
 
-1. **Q1 2024**
-   - Social features integration
-   - Advanced analytics dashboard
-   - AI-powered coaching
+1. **Q3 2024**
+   - Global edge caching nodes
+   - WebAssembly support
+   - Automated malware remediation
 
-2. **Q2 2024**
-   - Wearable device integration
-   - Virtual trainer features
-   - Community challenges
-
-3. **Q3 2024**
-   - Meal planning automation
-   - Genetic testing integration
-   - Virtual reality workouts
+2. **2025 Vision**
+   - AI-driven resource allocation
+   - Blockchain-based DNS
+   - Green hosting initiatives[4][8]
 
 ## Technologies Used
-
-- React Native
-- TypeScript
-- Node.js
-- PostgreSQL
+- DirectAdmin
+- LiteSpeed Enterprise
+- Imunify360
+- CloudLinux
+- NVMe Storage
+- AMD Ryzen Processors
 - Redis
-- TensorFlow
-- AWS Services
-- Firebase
-    `,
-    tags: ["React Native", "Firebase", "Redux", "Chart.js"],
-    image: "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg",
-    link: "#",
-    github: "#",
-  },
-  {
-    id: "3",
-    title: "Real-time Chat Application",
-    description:
-      "Scalable real-time chat platform with video calling capabilities and end-to-end encryption.",
-    content: `
-# Real-time Chat Application
-
-A modern, secure, and scalable chat platform that prioritizes user privacy while delivering a seamless communication experience.
-
-## Project Overview
-
-This chat application was built to demonstrate the implementation of real-time features, security best practices, and scalable architecture in modern web applications.
-
-## Key Features
-
-### Messaging Capabilities
-\`\`\`typescript
-interface Message {
-  id: string;
-  content: string;
-  sender: User;
-  timestamp: Date;
-  status: 'sent' | 'delivered' | 'read';
-  attachments?: Array<{
-    type: 'image' | 'file' | 'audio';
-    url: string;
-    name: string;
-    size: number;
-  }>;
-}
-\`\`\`
-
-### Video Calling
-- WebRTC integration
-- Screen sharing
-- Multiple participant support
-- Adaptive quality
-- Recording capabilities
-
-### Security Features
-1. End-to-end encryption
-2. Perfect forward secrecy
-3. Two-factor authentication
-4. Message expiration
-5. Secure file transfer
-
-## Technical Architecture
-
-### Frontend Implementation
-\`\`\`typescript
-// WebSocket connection handler
-class WebSocketManager {
-  private socket: WebSocket;
-  private messageQueue: Message[] = [];
-  
-  constructor(private url: string) {
-    this.socket = new WebSocket(url);
-    this.setupEventHandlers();
-  }
-  
-  private setupEventHandlers() {
-    this.socket.onmessage = (event) => {
-      const message = JSON.parse(event.data);
-      this.handleIncomingMessage(message);
-    };
-    
-    this.socket.onclose = () => {
-      this.handleDisconnection();
-    };
-  }
-  
-  private handleIncomingMessage(message: Message) {
-    // Process incoming messages
-    // Update UI and trigger notifications
-  }
-  
-  private handleDisconnection() {
-    // Implement reconnection logic
-    // Save unsent messages to queue
-  }
-}
-\`\`\`
-
-### Backend Architecture
-- Node.js with Express
-- PostgreSQL for data persistence
-- Redis for real-time features
-- Elasticsearch for message search
-- Kubernetes for orchestration
-
-## Performance Optimizations
-
-> "Real-time doesn't mean sacrificing performance."
-
-### Message Handling
-1. Message queuing
-2. Batch processing
-3. Optimistic UI updates
-4. Lazy loading of history
-
-### Media Optimization
-- Image compression
-- Video transcoding
-- Adaptive streaming
-- CDN integration
-
-## Development Process
-
-### Planning Phase
-- Requirements analysis
-- Architecture design
-- Security planning
-- Performance benchmarking
-
-### Implementation Phase
-1. Core messaging features
-2. Video calling integration
-3. Security implementation
-4. UI/UX development
-
-### Testing Phase
-- Unit testing
-- Integration testing
-- Load testing
-- Security audits
-
-## Results
-
-### Performance Metrics
-- 50ms message delivery time
-- 99.99% uptime
-- 1M+ concurrent connections
-- < 100ms API response time
-
-### User Metrics
-- 1M+ active users
-- 4.9/5 user satisfaction
-- 95% retention rate
-- 500M+ messages/day
-
-## Security Measures
-
-### Encryption
-\`\`\`typescript
-interface EncryptionConfig {
-  algorithm: 'AES-256-GCM';
-  keySize: 256;
-  ivSize: 96;
-  tagLength: 128;
-}
-
-class MessageEncryption {
-  private config: EncryptionConfig;
-  
-  constructor() {
-    this.config = {
-      algorithm: 'AES-256-GCM',
-      keySize: 256,
-      ivSize: 96,
-      tagLength: 128
-    };
-  }
-  
-  async encryptMessage(message: string, key: CryptoKey): Promise<EncryptedMessage> {
-    // Implement encryption logic
-  }
-  
-  async decryptMessage(encrypted: EncryptedMessage, key: CryptoKey): Promise<string> {
-    // Implement decryption logic
-  }
-}
-\`\`\`
-
-## Future Improvements
-
-1. **Enhanced Features**
-   - [ ] AI-powered chatbots
-   - [ ] Language translation
-   - [ ] Voice messages
-   - [ ] Rich text formatting
-
-2. **Technical Improvements**
-   - [ ] WebAssembly optimization
-   - [ ] Edge computing integration
-   - [ ] Blockchain integration
-   - [ ] AR/VR support
-
-## Technologies Used
-
-- WebSocket
-- WebRTC
-- Node.js
-- PostgreSQL
-- Redis
-- Elasticsearch
-- Docker
-- Kubernetes
-    `,
-    tags: ["WebSockets", "WebRTC", "Next.js", "PostgreSQL"],
-    image: "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg",
-    link: "#",
-    github: "#",
-  },
-  {
-    id: "4",
-    title: "Content Management System",
-    description:
-      "Custom CMS with role-based access control, content versioning, and API capabilities.",
-    content: `
-# Content Management System
-
-A flexible and powerful CMS designed for modern content management needs, featuring advanced workflows and API-first architecture.
-
-## Project Overview
-
-This custom CMS was built to provide a flexible and scalable solution for content management, featuring advanced workflows, versioning, and comprehensive API support.
-
-## Key Features
-
-### Content Management
-\`\`\`typescript
-interface Content {
-  id: string;
-  type: 'post' | 'page' | 'product' | 'custom';
-  title: string;
-  content: string;
-  status: 'draft' | 'published' | 'archived';
-  metadata: {
-    author: User;
-    created: Date;
-    modified: Date;
-    version: number;
-    tags: string[];
-    seo: {
-      title: string;
-      description: string;
-      keywords: string[];
-    };
-  };
-}
-\`\`\`
-
-### Workflow System
-1. Content creation
-2. Review process
-3. Approval workflow
-4. Publishing system
-5. Version control
-
-### API Features
-- RESTful endpoints
-- GraphQL support
-- Webhook integration
-- Rate limiting
-- Authentication
-
-## Technical Implementation
-
-### Backend Architecture
-\`\`\`typescript
-// Content versioning system
-class ContentVersioning {
-  private async createVersion(content: Content): Promise<Version> {
-    const version = new Version({
-      contentId: content.id,
-      data: content,
-      timestamp: new Date(),
-      author: getCurrentUser()
-    });
-    
-    await this.saveVersion(version);
-    return version;
-  }
-  
-  private async compareVersions(v1: Version, v2: Version): Promise<Diff[]> {
-    // Implement diff logic
-    return calculateDiff(v1.data, v2.data);
-  }
-  
-  async rollback(contentId: string, versionId: string): Promise<Content> {
-    // Implement rollback logic
-    return this.restoreVersion(contentId, versionId);
-  }
-}
-\`\`\`
-
-### Database Schema
-- PostgreSQL for structured data
-- MongoDB for content storage
-- Redis for caching
-- Elasticsearch for search
-
-## Security Implementation
-
-### Role-Based Access Control
-\`\`\`typescript
-interface Permission {
-  resource: string;
-  action: 'create' | 'read' | 'update' | 'delete';
-  conditions?: {
-    owner?: boolean;
-    department?: string[];
-    status?: string[];
-  };
-}
-
-interface Role {
-  name: string;
-  permissions: Permission[];
-}
-\`\`\`
-
-### Security Measures
-1. Authentication system
-2. Authorization framework
-3. Data validation
-4. Input sanitization
-5. Audit logging
-
-## Development Process
-
-### Phase 1: Planning
-- Requirements gathering
-- Architecture design
-- Database schema design
-- API specification
-
-### Phase 2: Implementation
-1. Core CMS features
-2. API development
-3. Admin interface
-4. Security implementation
-
-### Phase 3: Testing
-- Unit testing
-- Integration testing
-- Security testing
-- Performance testing
-
-## Results
-
-### Performance Metrics
-- < 100ms API response time
-- 99.9% uptime
-- 10,000+ concurrent users
-- 1M+ content items
-
-### Business Impact
-- 50% reduction in content publishing time
-- 30% increase in content engagement
-- 40% reduction in training time
-- 4.8/5 user satisfaction
-
-## Future Improvements
-
-### Short-term
-- [ ] AI content suggestions
-- [ ] Advanced analytics
-- [ ] Automated workflows
-- [ ] Media optimization
-
-### Long-term
-- [ ] Machine learning integration
-- [ ] Headless CMS features
-- [ ] Multi-site management
-- [ ] Advanced personalization
-
-## Technologies Used
-
-- TypeScript
-- Node.js
-- PostgreSQL
-- MongoDB
-- Redis
-- Elasticsearch
-- Docker
-- Kubernetes
-    `,
-    tags: ["TypeScript", "Express", "MySQL", "GraphQL"],
-    image: "https://images.pexels.com/photos/270360/pexels-photo-270360.jpeg",
-    link: "#",
-    github: "#",
+- PHP 8.3
+  `,
+    tags: ["Hosting", "DevOps", "LiteSpeed", "DirectAdmin", "CloudLinux"],
+    image: "https://i.ibb.co/4nwj8X7c/image-15.png",
+    link: "https://wexronhosting.com",
+    github: "https://github.com/wexron",
   },
 ];
 
