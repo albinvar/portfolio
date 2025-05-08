@@ -10,7 +10,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Albin Varghese | Full Stack Developer",
-  description: "Portfolio of Albin Varghese, a Full Stack Developer with over 6 years of experience from Kerala, India.",
+  description:
+    "Portfolio of Albin Varghese, a Full Stack Developer with over 6 years of experience from Kerala, India.",
 };
 
 export default function RootLayout({
@@ -24,7 +25,9 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="relative min-h-screen flex flex-col">
             <Header />
-            <div className="flex-grow">{children}</div>
+            <div className="flex-grow container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              {children}
+            </div>
             <Footer />
           </div>
           <Toaster position="bottom-right" />
