@@ -32,7 +32,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] flex flex-col justify-center py-16 md:py-24 lg:py-32 overflow-hidden">
+    <section className="relative min-h-[calc(100vh-4rem)] flex flex-col justify-center py-16 mt-16  md:py-24 lg:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-grid-small-black/[0.2] bg-grid-small-white/[0.2] dark:bg-grid-small-white/[0.2]" />
       <div className="container relative z-10 px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -70,7 +70,7 @@ export function Hero() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4"
           >
-            With over 6 years of experience crafting digital solutions. Based in
+            With over 7 years of experience crafting digital solutions. Based in
             Kerala, India, I build exceptional, high-performing applications
             with clean code and intuitive design.
           </motion.p>

@@ -212,12 +212,456 @@ Designing a system architecture that could scale from individual homes to indust
     github: "https://github.com/albinvar/hydrolink-plus/",
   },
   {
+    id: "8",
+    title: "Smart Lock UNO",
+    description:
+      "A multi-level authentication smart lock system utilizing facial recognition, RFID authentication, and web API control using Arduino Uno and Python.",
+    content: `
+# Smart Lock UNO - Multi-Level Authentication Smart Lock 🔐
+
+A comprehensive security system that combines facial recognition, RFID scanning, and web API authentication to create an affordable, versatile access control solution built on Arduino and Python.
+
+## Project Overview
+
+Smart Lock UNO was developed as a flexible, open-source prototype for secure access control. With its modular design and accessible codebase, it serves as an excellent starting point for innovators looking to build customized security solutions. The system offers a cost-effective approach to access management while incorporating advanced authentication technologies.
+
+## Key Features
+
+### Authentication Methods
+- **Facial Recognition**: OpenCV-powered recognition using laptop/external webcam
+- **RFID Authentication**: Contact-free card scanning with RC522 module
+- **Web API Control**: Remote access through Flask web server
+- **Voice Feedback**: Real-time audio notifications using PYTTSX3
+- **Telegram Notifications**: Instant alerts for unauthorized access attempts
+
+### Technical Implementation
+- Multi-threaded architecture for concurrent authentication processing
+- LBPH algorithm for reliable facial feature extraction
+- Secure token-based API authorization
+- Shared serial connection management for efficient Arduino communication
+- Intruder detection with automatic image capture
+
+## Hardware Components
+
+### Core System
+- Arduino Uno R3 microcontroller
+- 12V solenoid lock for physical door control
+- 5V single-channel relay for power management
+- RFID-RC522 module with RFID tags
+- Laptop with webcam for processing and facial recognition
+
+### Circuit Integration
+The system features a carefully designed circuit that connects the Arduino to various components:
+
+1. **Relay Connection**:
+   - VCC/+ pin to Arduino 5V
+   - GND/- pin to Arduino GND
+   - IN/S pin to Arduino digital pin 2
+
+2. **Solenoid Lock Integration**:
+   - 12V power supply positive to relay NO port
+   - 12V power supply negative to solenoid lock negative
+   - Relay COM port to solenoid lock positive
+
+3. **RFID Reader Configuration**:
+   - SDA pin to Arduino pin 10
+   - SCK pin to Arduino pin 13
+   - MOSI pin to Arduino pin 11
+   - MISO pin to Arduino pin 12
+   - RST pin to Arduino pin 9
+   - Power connections to GND and 3.3V
+
+## Software Architecture
+
+### Processing Approach
+The system uses the laptop for all computational tasks, with the Arduino serving primarily as an I/O controller. This approach provides:
+- Enhanced processing capabilities for facial recognition
+- Reduced hardware requirements for the microcontroller
+- Simplified upgradeability and maintenance
+
+### Directory Structure
+\`\`\`
+├── 📂 src
+│   ├── facial.py
+│   ├── website.py
+│   └── rfid.py
+├── 📂 faces 👦🏻
+│   ├── 📂 [Person Name]
+│   │   └── [Images]
+├── 📂 intruders 🧛
+│   └── [Captured Images]
+├── 📂 models ⚙️
+│   └── trainer.yml
+├── haarcascade_frontalface_default.xml
+├── config.py
+├── main.py
+└── train.py
+\`\`\`
+
+### Authentication Implementations
+
+#### Facial Recognition
+The system uses the LBPH (Local Binary Patterns Histograms) algorithm through OpenCV to:
+- Extract unique facial features from images
+- Form histograms representing face characteristics
+- Compare detected faces against trained models
+- Make access decisions based on confidence thresholds
+
+Training data is organized by person, with each authorized user having their own folder of reference images. The \`haarcascade_frontalface_default.xml\` classifier detects faces in camera frames, and unauthorized faces are automatically captured and saved for review.
+
+#### RFID Authentication
+The system implements contact-free identification using:
+- An RC522 RFID reader connected to the Arduino
+- Serial communication to transmit tag IDs to the computer
+- Comparison against authorized card database in \`config.py\`
+- Temporary unlock triggering on successful match
+
+#### Web API
+The Flask-based API provides remote control capabilities:
+- Token-based authorization for secure access
+- Endpoints for lock control and system status
+- Access to captured intruder images
+- Integration with external applications
+
+
+## Development Process
+
+The project followed a systematic approach:
+1. **Requirements Analysis**: Identifying security needs and hardware constraints
+2. **Component Selection**: Choosing cost-effective, reliable hardware
+3. **Circuit Design**: Creating efficient, stable electrical connections
+4. **Software Architecture**: Implementing multi-threaded processing
+5. **Integration Testing**: Ensuring reliable operation across all authentication methods
+6. **Documentation**: Providing comprehensive setup and usage guides
+
+## Future Enhancements
+
+Planned improvements include:
+- Enhanced machine learning for more accurate facial recognition
+- Mobile application development for simplified management
+- Biometric fingerprint integration as a fourth authentication method
+- Encrypted communication between components for enhanced security
+- Solar/battery backup systems for power redundancy
+
+## Impact and Applications
+
+Smart Lock UNO demonstrates that advanced security doesn't require expensive proprietary systems. The open-source approach enables:
+- Educational applications for STEM learning
+- Small business security on limited budgets
+- Customized access control for specific requirements
+- Experimentation platform for security concepts
+
+## Technologies Used
+
+- Arduino (Hardware Control)
+- Python (Core Processing)
+- OpenCV (Facial Recognition)
+- Flask (Web API)
+- PYTTSX3 (Voice Synthesis)
+- RFID-RC522 (Contactless Authentication)
+- Serial Communication
+- Multi-threaded Processing
+`,
+    tags: ["Arduino", "Python", "OpenCV", "RFID", "Security", "IoT", "Flask"],
+    image: "https://i.ibb.co/GvxkDntP/image-16.png",
+    link: undefined,
+    github: "https://github.com/albinvar/smart-lock-uno",
+  },
+  {
+    id: "9",
+    title: "Razorpay FOSSBilling",
+    description:
+      "A payment gateway integration module for FOSSBilling that enables businesses to accept payments via Razorpay's diverse payment methods including Credit/Debit cards, Netbanking, UPI, and digital Wallets.",
+    content: `
+# Razorpay Integration for FOSSBilling
+
+A comprehensive payment gateway extension that seamlessly connects FOSSBilling with Razorpay, enabling businesses to offer multiple payment options to their customers through a unified interface.
+
+## Project Overview
+
+The Razorpay FOSSBilling integration was developed to bridge the gap between FOSSBilling's hosting and service billing platform and India's leading payment gateway. This extension empowers businesses to accept payments through numerous methods while maintaining a consistent user experience within the FOSSBilling ecosystem.
+
+## Key Features
+
+### Payment Options
+- **Credit & Debit Cards**: Support for all major providers including Visa, Mastercard, RuPay, and American Express
+- **UPI Payments**: Direct bank transfers using India's Unified Payments Interface
+- **Digital Wallets**: Integration with popular options like PayTM, PhonePe, and Amazon Pay
+- **Netbanking**: Connections to over 70 Indian banks
+- **EMI Options**: Flexible payment installments for eligible purchases
+
+### Technical Implementation
+- Seamless API integration with Razorpay's payment infrastructure
+- Webhook support for automated payment status updates
+- Comprehensive error handling with user-friendly messaging
+- Secure transaction processing following industry standards
+- Support for multiple currencies and automatic exchange rate handling
+
+## Integration Architecture
+
+The extension is designed with modularity in mind, following FOSSBilling's adapter pattern for payment gateways. This approach ensures:
+
+1. **Clean Separation**: Payment logic is isolated from core business processes
+2. **Easy Maintenance**: Updates to either FOSSBilling or Razorpay require minimal adjustments
+3. **Robust Security**: Sensitive payment information never touches the FOSSBilling server
+4. **Simple Configuration**: Merchants can configure the gateway through an intuitive admin interface
+
+## Development Approach
+
+The development process followed these key phases:
+
+### Research & Planning
+- Analysis of FOSSBilling's payment adapter specifications
+- Review of Razorpay API documentation and SDKs
+- Identification of integration points and potential challenges
+- Development of security and error handling strategies
+
+### Implementation
+- Core integration between FOSSBilling and Razorpay API
+- Configuration interface for merchant credentials and settings
+- Payment flow optimization for minimal friction
+- Comprehensive testing across multiple scenarios
+
+### Deployment & Documentation
+- Creation of detailed setup instructions
+- Development of troubleshooting guides
+- Submission to the FOSSBilling extension directory
+- Ongoing support and maintenance
+
+## Technical Challenges
+
+### Cross-Platform Compatibility
+Ensuring the extension works consistently across different hosting environments required careful consideration of dependencies and server requirements. The solution uses Razorpay's PHP SDK with minimal external dependencies to maximize compatibility.
+
+### Webhook Reliability
+Payment notifications via webhooks must be extremely reliable to prevent discrepancies between payment status in Razorpay and FOSSBilling. The implementation includes:
+- Idempotent webhook processing
+- Signature verification for all incoming webhooks
+- Automatic retry mechanisms for failed status updates
+- Detailed logging for troubleshooting
+
+### Currency Handling
+Supporting international merchants required implementing robust currency conversion and validation. The extension automatically handles currency mapping between FOSSBilling and Razorpay's supported currencies.
+
+## User Experience
+
+The integration provides a seamless experience for both merchants and their customers:
+
+### For Merchants
+- Simple setup requiring only API credentials from Razorpay
+- Customizable payment description and branding
+- Detailed transaction records within FOSSBilling
+- Automatic reconciliation with invoices
+
+### For Customers
+- Familiar, trusted payment interface
+- Multiple payment options on a single screen
+- Responsive design for mobile and desktop
+- Clear payment confirmation and receipts
+
+## Impact and Adoption
+
+The Razorpay integration has enabled numerous businesses using FOSSBilling to:
+- Expand their payment acceptance capabilities
+- Reduce transaction failures through redundant payment options
+- Improve cash flow with faster payment processing
+- Enhance customer experience with flexible payment methods
+
+## Future Enhancements
+
+Planned improvements to the extension include:
+- Support for Razorpay's subscription billing
+- Enhanced refund management interface
+- Advanced fraud detection options
+- Integrated checkout page customization tools
+- Support for international payment methods as Razorpay expands globally
+
+## Technologies Used
+
+- PHP (Primary implementation language)
+- Razorpay PHP SDK
+- FOSSBilling Extension Framework
+- JavaScript (Frontend integration)
+- RESTful API communication
+- JSON for data exchange
+- Composer for dependency management
+`,
+    tags: [
+      "PHP",
+      "Payment Integration",
+      "API",
+      "FOSSBilling",
+      "Razorpay",
+      "E-commerce",
+      "Webhooks",
+    ],
+    image:
+      "https://raw.githubusercontent.com/albinvar/assets/main/fossbilling/rzp-foss-banner.png",
+    link: "https://extensions.fossbilling.org/extension/Razorpay",
+    github: "https://github.com/albinvar/Razorpay-FOSSBilling",
+  },
+  {
+    id: "10",
+    title: "Termux Webzone",
+    description:
+      "A powerful CLI application for Android that transforms Termux into a complete web development environment, enabling developers to build, test, and run PHP applications directly on mobile devices.",
+    content: `
+# Termux Webzone - Mobile Web Development Environment
+
+A comprehensive command-line application that turns your Android device into a full-featured web development workstation, allowing developers to code, test, and deploy PHP applications without requiring a desktop or laptop computer.
+
+## Project Overview
+
+Termux Webzone was created to solve the challenge of web development on mobile devices. By leveraging Termux, the Linux terminal emulator for Android, this tool provides a complete development environment with server capabilities, database management, and development utilities all contained within the constraints of a smartphone or tablet.
+
+## Key Features
+
+### Development Environment
+- **Complete LAMP Stack**: Integrated Linux, Apache, MySQL, and PHP environment
+- **Virtual Hosts**: Create and manage multiple websites on a single device
+- **Database Management**: Built-in tools for MySQL/MariaDB administration
+- **Development Tools**: Code completion, syntax highlighting, and debugging utilities
+
+### Project Management
+- **Project Templates**: Quick scaffolding for common web frameworks
+- **Version Control**: Git integration for source code management
+- **Dependency Management**: Composer support for PHP package management
+- **File Operations**: Simplified file handling with intuitive commands
+
+### Testing & Deployment
+- **Local Testing Server**: Instantly preview websites on device
+- **Remote Testing**: Share development server via internet tunneling
+- **Performance Monitoring**: Resource usage statistics for optimization
+- **Export Capabilities**: Package projects for deployment to production servers
+
+## Technical Implementation
+
+### Architecture
+
+Termux Webzone is built with a modular approach, consisting of:
+
+1. **Core Module**: Handles basic environment setup and configuration
+2. **Server Module**: Manages Apache/Nginx configurations and services
+3. **Database Module**: Provides database creation, backup, and management tools
+4. **Utility Module**: Contains helper functions for common development tasks
+
+The application follows a command-based interface pattern, similar to Git or Composer, with the following structure:
+
+\`\`\`
+webzone [command] [options]
+\`\`\`
+
+For example:
+\`\`\`
+webzone create-project laravel my-app
+webzone start-server
+webzone database create my_database
+\`\`\`
+
+### Android Integration
+
+Despite Android's restrictions, Termux Webzone implements several clever workarounds:
+
+- **Resource Management**: Optimized server configurations for limited mobile resources
+- **Battery Conservation**: Intelligent service management to minimize power consumption
+- **Storage Handling**: Efficient file operations to work within Android storage limitations
+- **Notification Integration**: System notifications for long-running processes
+
+## Development Process
+
+The creation of Termux Webzone involved:
+
+1. **Requirement Analysis**: Identifying key needs for mobile web development
+2. **Feasibility Testing**: Determining what was possible within Android constraints
+3. **Component Selection**: Choosing lightweight alternatives to traditional server software
+4. **Script Development**: Writing bash scripts for core functionality
+5. **Testing & Optimization**: Ensuring reliable performance on various Android devices
+
+## User Experience
+
+Termux Webzone transforms the mobile development workflow through:
+
+### Streamlined Setup
+From a fresh Termux installation to a working development environment in minutes, rather than hours of manual configuration.
+
+### Simplified Commands
+Complex server operations abstracted into intuitive commands:
+
+| Traditional Method | Termux Webzone Method |
+|--------------------|-----------------------|
+| \`sudo service apache2 start\` | \`webzone start-server\` |
+| \`mysql -u root -p -e "CREATE DATABASE mydb"\` | \`webzone db create mydb\` |
+| \`nano /etc/apache2/sites-available/example.conf\` | \`webzone vhost create example.com\` |
+
+### Mobile-First Design
+Commands and workflows optimized for touchscreen input and limited screen space.
+
+## Impact and Applications
+
+Termux Webzone has enabled:
+
+- **Educational Use**: Students learning web development without requiring expensive hardware
+- **Remote Work**: Developers making emergency fixes while away from their main workstation
+- **Hobbyist Development**: Casual developers creating projects entirely on mobile devices
+- **Developing Regions**: Web development in areas with limited access to computers but widespread smartphone availability
+
+## Challenges and Solutions
+
+### Limited Resources
+Mobile devices have significantly less RAM and processing power compared to desktops.
+
+**Solution**: Implemented resource-efficient server configurations and process management.
+
+### Storage Constraints
+Android's storage system imposes restrictions on executable permissions and file access.
+
+**Solution**: Created a structured file hierarchy within Termux's accessible storage area with automated permission handling.
+
+### Input Limitations
+Command-line interfaces can be challenging on touch keyboards.
+
+**Solution**: Developed shortened command aliases and tab completion for common operations.
+
+## Future Enhancements
+
+Planned improvements include:
+
+- Integration with code editors like Acode and Spck Editor
+- Support for additional frameworks and languages (Node.js, Python, Ruby)
+- Cloud synchronization for project files
+- Remote server deployment tools
+
+## Technologies Used
+
+- Bash Scripting
+- PHP
+- MySQL/MariaDB
+- Apache/Nginx
+- Git
+- Composer
+- Android Platform APIs
+- Termux API
+`,
+    tags: [
+      "PHP",
+      "CLI",
+      "Android",
+      "Termux",
+      "LAMP Stack",
+      "Web Development",
+      "Mobile Development",
+    ],
+    image:
+      "https://i.ibb.co/m5mFqwms/68747470733a2f2f692e6962622e636f2f6e5256487467772f494d472d32303231303333302d3233313932322e6a7067.jpg",
+    link: undefined,
+    github: "https://github.com/albinvar/termux-webzone",
+  },
+  {
     id: "6",
     title: "Cloxo AI",
     description:
       "An intuitive platform connecting users to over 50 open-source AI models, offering free access to advanced NLP, computer vision, and image generation capabilities with seamless API integration.",
     content: `
-
 # Cloxo AI - Harness the Power of 50+ AI Models for Free
 
 Cloxo AI is a versatile platform designed to democratize artificial intelligence by providing seamless access to more than 50 open-source AI models directly from your browser, completely free of charge. It empowers developers, researchers, and businesses to explore, integrate, and build AI-powered applications with ease.

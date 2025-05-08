@@ -23,7 +23,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
       <Card className="overflow-hidden h-full flex flex-col group">
-        <Link href={`/projects/${project.id}`} className="relative aspect-video overflow-hidden">
+        <Link
+          href={`/projects/${project.id}`}
+          className="relative aspect-video overflow-hidden"
+        >
           {project.image && (
             <Image
               src={project.image}
@@ -40,35 +43,47 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               {project.title}
             </h3>
           </Link>
-          <p className="text-muted-foreground mb-4 flex-grow">{project.description}</p>
-          
+          <p className="text-muted-foreground mb-4 flex-grow">
+            {project.description}
+          </p>
+
           <div className="flex flex-wrap gap-2 mb-4">
             {project.tags.map((tag) => (
-              <Badge key={tag} variant="secondary">{tag}</Badge>
+              <Badge key={tag} variant="secondary">
+                {tag}
+              </Badge>
             ))}
           </div>
-          
+
           <div className="flex items-center justify-between mt-auto">
             <div className="flex gap-3">
               {project.link && (
                 <Button variant="ghost" size="sm" asChild className="gap-1">
-                  <Link href={project.link} target="_blank" rel="noopener noreferrer">
+                  <Link
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <ExternalLink className="h-4 w-4" />
                     Demo
                   </Link>
                 </Button>
               )}
-              
+
               {project.github && (
                 <Button variant="ghost" size="sm" asChild className="gap-1">
-                  <Link href={project.github} target="_blank" rel="noopener noreferrer">
+                  <Link
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Github className="h-4 w-4" />
                     Code
                   </Link>
                 </Button>
               )}
             </div>
-            
+
             <Button variant="ghost" size="sm" asChild>
               <Link href={`/projects/${project.id}`}>
                 View Details
