@@ -325,7 +325,7 @@ Built on the robust foundation of OpenWebUI, Cloxo AI offers unmatched scalabili
     github: undefined,
   },
   {
-    id: "6",
+    id: "7",
     title: "Wexron Hosting",
     description:
       "High-performance web hosting platform leveraging NVMe SSD storage and AMD Ryzen 9 processors, offering scalable solutions from shared hosting to enterprise reseller plans.",

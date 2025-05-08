@@ -6,11 +6,11 @@ export default function TimelinePage() {
   return (
     <main className="pt-32 pb-20">
       <div className="container px-4 sm:px-6 lg:px-8">
-        <SectionHeading 
+        <SectionHeading
           title="My Journey"
           description="A timeline of my professional experience and career milestones."
         />
-        
+
         <div className="max-w-5xl mx-auto mt-16">
           {timelineData.map((item, index) => (
             <TimelineItem
